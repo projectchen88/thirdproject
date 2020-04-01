@@ -1,0 +1,17 @@
+body {
+    background-color: white;
+}
+.full-vh {
+    height : 100vh;    
+}
+#recipe {
+    padding-top: 8%;
+}
+.recipe-box {
+    height: 140px;
+    width : 200px;
+}
+.recipe-box img {
+    max-width: 100%;
+    height: auto;
+}
