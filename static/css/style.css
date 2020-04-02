@@ -4,6 +4,10 @@ body {
 .full-vh {
     height : 100vh;    
 }
+.vh-40{
+    height: 40vh;
+}
+
 #recipe {
     padding-top: 8%;
 }
