@@ -1,7 +1,7 @@
 body {
     background-color: white;
 }
-.full-vh {
+.vh-100 {
     height : 100vh;    
 }
 .vh-40{

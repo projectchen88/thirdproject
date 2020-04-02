@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block page_title %}No. 1 Food Recipe | Enjoy the best food in life !{% endblock %} {% block content %}
+
+
+<section class='mt-5 p-5 vh-100'>
+    <div class='d-flex justify-content-center align-center text-center'>
+        <div class='w-75'>
+         <h3>Congratulations ! </h3>
+         <p>{{ message1 }}</p>
+         <p>{{ message2 }}</p>
+         <a class='btn btn-success' href='{{ url_for ('index') }}'>Got it !</a>
+         </div>
+    </div>
+</section>
+{% endblock %}
+

@@ -40,33 +40,35 @@
                         <div class="form-inline col-sm-9">
                             <input readonly type='text' disabled class="pl-3 w-75 form-control-plaintext" value='Ingredient' />
                             <input readonly type='text' disabled class="pl-3 w-25 form-control-plaintext" value='Amount' />
-                            <input type='text' class="w-75 form-control" id="dish_ingredient1" name='dish_ingredient2' placeholder='Ingredient 1' />
-                            <input type='text' class="w-25 form-control" id="dish_portion1" name='dish_portion1' placeholder='e.g 10ml' />
+                            <input type='text' class="w-75 form-control" id="dish_ingredient1" name='dish_ingredient1' placeholder='Ingredient 1' />
+                            <input type='text' class="w-25 form-control" id="dish_ingredient1_portion" name='dish_ingredient1_portion' placeholder='e.g 10ml' />
+                            
                             <input type='text' class="w-75 form-control" id="dish_ingredient2" name='dish_ingredient2' placeholder='Ingredient 2' />
-                            <input type='text' class="w-25 form-control" id="dish_portion2" name='dish_portion1' placeholder='e.g 10ml' />
+                            <input type='text' class="w-25 form-control" id="dish_ingredient2_portion" name='dish_ingredient2_portion' placeholder='e.g 10ml' />
+                            
                             <input type='text' class="w-75 form-control" id="dish_ingredient3" name='dish_ingredient3' placeholder='Ingredient 3' />
-                            <input type='text' class="w-25 form-control" id="dish_portion3" name='dish_portion3' placeholder='e.g 10ml' />
+                            <input type='text' class="w-25 form-control" id="dish_ingredient3_portion" name='dish_ingredient3_portion' placeholder='e.g 10ml' />
                             <!--Hidden Entry boxes-->
                             <input type='text' class="w-75 form-control d-none" id="dish_ingredient4" name='dish_ingredient4' placeholder='Ingredient 4' />
-                            <input type='text' class="w-25 form-control d-none" id="dish_portion4" name='dish_portion4' placeholder='e.g 10ml' />
+                            <input type='text' class="w-25 form-control d-none" id="dish_ingredient4_portion" name='dish_ingredient4_portion' placeholder='e.g 10ml' />
                             
                             <input type='text' class="w-75 form-control d-none" id="dish_ingredient5" name='dish_ingredient5' placeholder='Ingredient 5' />
-                            <input type='text' class="w-25 form-control d-none" id="dish_portion5" name='dish_portion5' placeholder='e.g 10ml' />
+                            <input type='text' class="w-25 form-control d-none" id="dish_ingredient5_portion" name='dish_ingredient5_portion' placeholder='e.g 10ml' />
                             
                             <input type='text' class="w-75 form-control d-none" id="dish_ingredient6" name='dish_ingredient6' placeholder='Ingredient 6' />
-                            <input type='text' class="w-25 form-control d-none" id="dish_portion6" name='dish_portion6' placeholder='e.g 10ml' />
+                            <input type='text' class="w-25 form-control d-none" id="dish_ingredient6_portion" name='dish_ingredient6_portion' placeholder='e.g 10ml' />
                             
                             <input type='text' class="w-75 form-control d-none" id="dish_ingredient7" name='dish_ingredient7' placeholder='Ingredient 7' />
-                            <input type='text' class="w-25 form-control d-none" id="dish_portion7" name='dish_portion7' placeholder='e.g 10ml' />
+                            <input type='text' class="w-25 form-control d-none" id="dish_ingredient7_portion" name='dish_ingredient7_portion' placeholder='e.g 10ml' />
                             
                             <input type='text' class="w-75 form-control d-none" id="dish_ingredient8" name='dish_ingredient8' placeholder='Ingredient 8' />
-                            <input type='text' class="w-25 form-control d-none" id="dish_portion8" name='dish_portion8' placeholder='e.g 10ml' />
+                            <input type='text' class="w-25 form-control d-none" id="dish_ingredient8_portion" name='dish_ingredient8_portion' placeholder='e.g 10ml' />
                             
                             <input type='text' class="w-75 form-control d-none" id="dish_ingredient9" name='dish_ingredient9' placeholder='Ingredient 9' />
-                            <input type='text' class="w-25 form-control d-none" id="dish_portion9" name='dish_portion9' placeholder='e.g 10ml' />
+                            <input type='text' class="w-25 form-control d-none" id="dish_ingredient9_portion" name='dish_ingredient9_portion' placeholder='e.g 10ml' />
                             
                             <input type='text' class="w-75 form-control d-none" id="dish_ingredient10" name='dish_ingredient10' placeholder='Ingredient 10' />
-                            <input type='text' class="w-25 form-control d-none" id="dish_portion10" name='dish_portion4' placeholder='e.g 10ml' />
+                            <input type='text' class="w-25 form-control d-none" id="dish_ingredient10_portion" name='dish_ingredient10_portion' placeholder='e.g 10ml' />
         
                             <div class='mt-3 btn btn-success'>Add ingredient</div>
                         </div>
@@ -90,7 +92,7 @@
                             <input type='text' class="form-control d-none" id="dish_instruction9" name='dish_instruction9' placeholder='Next Step' />
                             <input type='text' class="form-control d-none" id="dish_instruction10" name='dish_instruction10' placeholder='Next Step' />
         
-                            <div class='mt-3 btn btn-success'>Add ingredient</div>
+                            <div class='mt-3 btn btn-success'>Add another step</div>
                         </div>
                     </div>            
                     <!--Preparation time estimate-->
@@ -126,7 +128,7 @@
                     <div class="form-group row">
                         <label for='dish_type' class="col-sm-3 col-form-label">Cusine Type</label>
                         <div class="col-sm-9">
-                            <select class="form-control" id="dish_skill" name='dish_skill'>
+                            <select class="form-control" id="dish_skill" name='dish_type'>
                                 <option><i>--</i></option>
                               <option>Singapore</option>
                               <option>Chinese</option>
@@ -139,7 +141,6 @@
                             </select>
                         </div>
                     </div>
-        
                     <!--Skill Level : Easy Intermediate Hard-->
                     <div class="form-group row">
                         <label for='dish_skill' class="col-sm-3 col-form-label">Skill Level</label>
@@ -153,6 +154,7 @@
                             </select>
                         </div>
                     </div>
+                    
                     <!--Submit button-->
                     <div class="form-group row">
                         <div class="col-sm-3"></div>
