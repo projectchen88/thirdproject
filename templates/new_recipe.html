@@ -1,0 +1,83 @@
+{% extends 'base.html' %} {% block page_title %}New Recipe is the best thing human creation !{% endblock %} {% block content %}
+<section class='mt-5 mx-3 p-3'>
+    <div class='row pt-2'>
+        <h4 class='mx-auto'><strong>Submit Your Recipe</strong></h4>
+        <p class='mx-3 text-justify'>Share your favourite recipe with us, and we will make sure it reaches millions of taste buds</p>
+    </div>
+    <div class='bg-light p-4 w-100 rounded'>
+        <form method='POST' action='/upload' exctype='multipart/form-data'>
+            <!--Recipe name entry-->
+            <div class="form-group row">
+                <label for="dish_name" class="col-sm-3 ">Title</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="dish_name"="dish_name" placeholder="Recipe title">
+                </div>
+            </div>
+            <!--Image upload-->
+            <div class="form-group row">
+                <label for='dish_image' class="col-sm-3 col-form-label">File Upload</label>
+                <div class="col-sm-9">
+                    <input type='file' class="form-control" id="dish_image" name='dish_image' />
+                </div>
+            </div>
+            <!--Description entry-->
+            <div class="form-group row">
+                <label for="dish_description" class="col-sm-3 col-form-label">Description</label>
+                <div class="col-sm-9">
+                    <textarea class="form-control" id="dish_description" name='dish_description' placeholder='Recipe description'></textarea>
+                </div>
+            </div>
+            <!--Ingredients Entry-->
+            <div class="form-group row">
+                <label for="dish_ingredient1" class="col-sm-3 col-form-label">Ingredient 1</label>
+                <div class="form-inline col-sm-9">
+                    <input readonly type='text' disabled class="pl-3 w-75 form-control-plaintext" value='Ingredient' />
+                    <input readonly type='text' disabled class="pl-3 w-25 form-control-plaintext" value='Amount' />
+                    <input type='text' class="w-75 form-control" id="dish_ingredient1" name='dish_ingredient2' placeholder='Ingredient 1' />
+                    <input type='text' class="w-25 form-control" id="dish_portion1" name='dish_portion1' placeholder='e.g 10ml' />
+                    <input type='text' class="w-75 form-control" id="dish_ingredient2" name='dish_ingredient2' placeholder='Ingredient 2' />
+                    <input type='text' class="w-25 form-control" id="dish_portion2" name='dish_portion1' placeholder='e.g 10ml' />
+                    <input type='text' class="w-75 form-control" id="dish_ingredient3" name='dish_ingredient3' placeholder='Ingredient 3' />
+                    <input type='text' class="w-25 form-control" id="dish_portion3" name='dish_portion3' placeholder='e.g 10ml' />
+                    <input type='text' class="w-75 form-control d-none" id="dish_ingredient4" name='dish_ingredient4'  placeholder='Ingredient 4'/>
+                    <input type='text' class="w-25 form-control d-none" id="dish_portion4" name='dish_portion4' placeholder='e.g 10ml' />
+                    
+                    
+                    <button class='mt-3 btn btn-success'>Add ingredient</button>
+                 </div>
+            </div>
+    
+            <!--Instructions entry-->
+            
+            <!--Preparation time estimate-->
+            
+            <!--Cooking Time estimate-->
+            
+            <!--Servings -->
+            
+            <!--Cusine style select-->
+            
+            <!--Skill Level : Easy Intermediate Hard-->
+             <div class="form-group row">
+                <label for='dish_skill' class="col-sm-3 col-form-label">Skill Level</label>
+                <div class="col-sm-9">
+                    <select class="form-control"  id="dish_skill" name='dish_skill'>
+                        <option><i>--</i></option>
+                      <option>Easy</option>
+                      <option>Intermediate</option>
+                      <option>hard</option>
+             
+                    </select>
+                </div>
+            </div>
+            
+    
+            <div class="form-group row">
+                <div class="col-sm-3"></div>
+                <div class='col-sm-9'>
+                    <button type='submit' class='bg-success rounded text-light py-2 w-100'>Submit Recipe</button>
+                </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

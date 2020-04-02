@@ -21,7 +21,11 @@ def index():
     ,data = result
     )
 
-
+@app.route('/new_recipe')
+def new_recipe ():
+    return render_template('new_recipe.html') 
+    
+    
 # "magic code" -- boilerplate
 if __name__ == '__main__':
     app.secret_key = 'super secret key'
