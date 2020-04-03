@@ -207,6 +207,10 @@ def recipe (task_id) :
     })
     return render_template ('recipe.html', data=result)
 
+@app.route('/recipe/edit')
+def edit_recipe():
+    return render_template('edit_recipe.html')
+
 if __name__ == '__main__':
     app.secret_key = 'super secret key'
     app.config['SESSION_TYPE'] = 'filesystem'
