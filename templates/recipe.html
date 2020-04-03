@@ -4,15 +4,15 @@
 
 <section class='mt-5 mx-md-5 mx-3 p-3'>
     <div class='d-flex justify-content-between pt-md-5 pt-2 px-3'>
-        <p class='w-100 text-dark border'>
+        <p class='w-100 text-dark '>
             <i>
                 <a class="text-decoration-none text-success" href="{{ url_for('index') }}">Home</a> > Recipe
             </i>
         </p>
-        <p class='w-100 text-dark text-right border'>
+        <p class='w-100 text-dark text-right '>
             <i>
                 <a class="text-decoration-none text-success" href="{{ url_for('edit_recipe', task_id=data['_id']) }}">Edit</a> |
-                <a class="text-decoration-none text-warning" href="">Remove</a>
+                <a class="text-decoration-none text-warning" href="{{ url_for('remove_recipe') }}">Remove</a>
             </i>
         </p>
     </div>
@@ -25,7 +25,7 @@
     </div>
     <div class='row'>
         <div class='col-12 recipe-box mx-auto'>
-            <img src='/static/images/{{ data.dish_image }}' alt="{{ data.dish_name }}">        </div>
+            <img src='/static/images/{{ data.dish_image }}' alt="{{ data.dish_name }}"/>        </div>
     </div>
     <div class="row py-3">
         <div class="col-12 mx-auto">
@@ -67,7 +67,6 @@
             </p>    
         </div>
     </div>
-    
 </section>
 {% endblock %}
 

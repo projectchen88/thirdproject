@@ -387,6 +387,9 @@ def update_recipe(task_id):
         message2 ='Soup taste better when brewed longer'
         )
 
+@app.route('/recipe/remove_recipe')
+def remove_recipe():
+    return render_template('remove_recipe.html')
 
 if __name__ == '__main__':
     app.secret_key = 'super secret key'

@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% block page_title %}No. 1 Food Recipe | Enjoy the best food in life !{% endblock %} {% block content %}
+
+
+<!--<section class=' p-5 vh-100 d-flex bg-dark justify-content-center align-center text-center'>-->
+<!--    <div class='call-out bg-light p-5 justify-content-center align-center'>-->
+        
+<!--     </div>-->
+<!--</section>-->
+
+<!--<section class='bg-dark container-fluid vh-100 d-flex justify-content-center align-center'>-->
+<!--    <div class='callout bg-light'>-->
+    <!--    <h3>Did something went wrong with the recipe ? </h3>-->
+    <!--</div>-->
+<div id='remove_recipe-box' class='bg-dark'>
+    <div class='p-5 bg-light text-center'>
+        <div class='preview-box my-0 mx-auto border'>
+            <img src="/static/images/steam_scallop.jpg"/>
+        </div>    
+        <h3>Did something went wrong with the recipe ? </h3>
+        <p>You are about to remove this recipe from our menu.{{ message1 }}</p>
+        <a class='btn btn-success m-md-0 m-2' href=''>Never mind, keep sharing!</a>
+        <a class='btn btn-danger m-md-0 m-2' href=''>Yes I am sure. Proceed to remove</a>
+    </div>
+    <div class='p-5'></div>
+</div>    
+<!--</section>-->
+{% endblock %}
+

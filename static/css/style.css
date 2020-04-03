@@ -1,8 +1,12 @@
 body {
     background-color: white;
 }
-.full-vh {
+.vh-100 {
     height : 100vh;    
+}
+.callout{
+    height: 50%;
+    width : 60%;
 }
 #preview {
     padding-top: 8%;
@@ -25,4 +29,13 @@ body {
 
 .list-remove-style {
     list-style-type : none;
+}
+
+#remove_recipe-box {
+    padding-top: 8%;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    height: 100vh;
 }
