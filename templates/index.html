@@ -1,14 +1,14 @@
 {% extends 'base.html' %} {% block page_title %}No. 1 Food Recipe | Enjoy the best food in life !{% endblock %} {% block content %}
 
 
-<main id='recipe' class='bg-light mx-4'>
+<main id='preview' class='bg-light mx-4'>
    
-    <div class='recipe-display row mx-auto'>
+    <div class='row mx-auto'>
         
         {% for d in data %}
         <div class='col-md-4 col-sm-6 col-12'>
-            <div class='recipe-box my-0 mx-auto'>
-                <img src='static/images/{{ d.dish_image }}' alt="{{ d.dish_name }}">
+            <div class='preview-box my-0 mx-auto'>
+                <a href="{{ url_for('recipe', task_id=d['_id']) }}"><img src='static/images/{{ d.dish_image }}' alt="{{ d.dish_name }}"></a>
             </div>
             <p class='d-flex justify-content-center'>
                 <span class='text-dark'><strong>{{ d.dish_name }}</strong></span>

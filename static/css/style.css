@@ -1,25 +1,28 @@
 body {
     background-color: white;
 }
-.vh-100 {
+.full-vh {
     height : 100vh;    
 }
-.vh-40{
-    height: 40vh;
-}
-
-#recipe {
+#preview {
     padding-top: 8%;
 }
-.recipe-box {
-    height: 140px;
+.preview-box {
+    height: 150px;
     width : 200px;
+}
+.preview-box img {
+    max-width: 100%;
+    height: auto;
 }
 .recipe-box img {
     max-width: 100%;
     height: auto;
 }
+.font-cursive {
+    font-family: cursive;
+}
 
-h5 {
-    font-family: "Abril Fatface",cursive
+.list-remove-style {
+    list-style-type : none;
 }
