@@ -1,12 +1,12 @@
 {% extends 'base.html' %} {% block page_title %}New Recipe is the best thing human creation !{% endblock %} {% block content %}
 <section class='mt-5 mx-3 p-3'>
     <div class='row pt-md-5 pt-2'>
-        <h2 class='mx-auto'><strong>Submit Your Recipe</strong></h2>
+        <h2 class='mx-auto'><strong>Enhance Your Recipe</strong></h2>
     </div>
     <hr class='mt-0' style='width:5%; border:dark 3px'/>
     <div class="row">
         <div class="col-md-4 col-12">        
-            <p class='mx-3'>Share your favourite recipe with us, and we make sure it reaches millions of taste buds !</p>
+            <p class='mx-3'>We believe in constant upgrading ourselves and we trust you have found secret to make it better !</p>
         </div>
         <div class="col-md-8 col-12">
             <div class='bg-light p-4 w-100 rounded'>
@@ -16,7 +16,7 @@
                     <div class="form-group row">
                         <label for="dish_name" class="col-sm-3 ">Title</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="dish_name" name="dish_name" placeholder="Recipe title">
+                            <input type="text" class="form-control" id="dish_name" name="dish_name" value="{{ data.dish_name }}">
                         </div>
                     </div>
                     
@@ -24,51 +24,54 @@
                     <div class="form-group row">
                         <label for='dish_image' class="col-sm-3 col-form-label">File Upload</label>
                         <div class="col-sm-9">
-                            <input type='file' class="form-control" id="dish_image" name='dish_image' />
+                            <input type='file' class="form-control" id="dish_image" name='dish_image' placeholder='Please upload a new photo'/>
                         </div>
                     </div>
+                    
                     <!--Description entry-->
                     <div class="form-group row">
                         <label for="dish_description" class="col-sm-3 col-form-label">Description</label>
                         <div class="col-sm-9">
-                            <textarea class="form-control" id="dish_description" name='dish_description' placeholder='Recipe description'></textarea>
+                            <textarea class="form-control" id="dish_description" name='dish_description' placeholder='Recipe description' >{{ data.dish_description }}</textarea>
                         </div>
                     </div>
+                    
                     <!--Ingredients Entry-->
                     <div class="form-group row">
                         <label for="dish_ingredient1" class="col-sm-3 col-form-label">Ingredients</label>
                         <div class="form-inline col-sm-9">
                             <input readonly type='text' disabled class="pl-3 w-75 form-control-plaintext" value='Ingredient' />
                             <input readonly type='text' disabled class="pl-3 w-25 form-control-plaintext" value='Amount' />
-                            <input type='text' class="w-75 form-control" id="dish_ingredient1" name='dish_ingredient1' placeholder='Ingredient 1' />
-                            <input type='text' class="w-25 form-control" id="dish_ingredient1_portion" name='dish_ingredient1_portion' placeholder='e.g 10ml' />
                             
-                            <input type='text' class="w-75 form-control" id="dish_ingredient2" name='dish_ingredient2' placeholder='Ingredient 2' />
-                            <input type='text' class="w-25 form-control" id="dish_ingredient2_portion" name='dish_ingredient2_portion' placeholder='e.g 10ml' />
+                            <input type='text' class="w-75 form-control" id="dish_ingredient1" name='dish_ingredient1' placeholder='Ingredient 1' value="{{ data.dish_ingredient[0].dish_ingredient }}"/>
+                            <input type='text' class="w-25 form-control" id="dish_ingredient1_portion" name='dish_ingredient1_portion' placeholder='e.g 10ml' value="{{ data.dish_ingredient[0].dish_portion }}" />
                             
-                            <input type='text' class="w-75 form-control" id="dish_ingredient3" name='dish_ingredient3' placeholder='Ingredient 3' />
-                            <input type='text' class="w-25 form-control" id="dish_ingredient3_portion" name='dish_ingredient3_portion' placeholder='e.g 10ml' />
+                            <input type='text' class="w-75 form-control" id="dish_ingredient2" name='dish_ingredient2' placeholder='Ingredient 2' value="{{ data.dish_ingredient[1].dish_ingredient }}"/>
+                            <input type='text' class="w-25 form-control" id="dish_ingredient2_portion" name='dish_ingredient2_portion' placeholder='e.g 10ml'  value="{{ data.dish_ingredient[1].dish_portion }}"/>
+                            
+                            <input type='text' class="w-75 form-control" id="dish_ingredient3" name='dish_ingredient3' placeholder='Ingredient 3' value="{{ data.dish_ingredient[2].dish_ingredient }}" />
+                            <input type='text' class="w-25 form-control" id="dish_ingredient3_portion" name='dish_ingredient3_portion' placeholder='e.g 10ml' value="{{ data.dish_ingredient[2].dish_portion }}"/>
                             <!--Hidden Entry boxes-->
-                            <input type='text' class="w-75 form-control d-none" id="dish_ingredient4" name='dish_ingredient4' placeholder='Ingredient 4' />
-                            <input type='text' class="w-25 form-control d-none" id="dish_ingredient4_portion" name='dish_ingredient4_portion' placeholder='e.g 10ml' />
+                            <input type='text' class="w-75 form-control d-none" id="dish_ingredient4" name='dish_ingredient4' placeholder='Ingredient 4' value="{{ data.dish_ingredient[3].dish_ingredient }}" />
+                            <input type='text' class="w-25 form-control d-none" id="dish_ingredient4_portion" name='dish_ingredient4_portion' placeholder='e.g 10ml' value="{{ data.dish_ingredient[3].dish_portion }}"/>
                             
-                            <input type='text' class="w-75 form-control d-none" id="dish_ingredient5" name='dish_ingredient5' placeholder='Ingredient 5' />
-                            <input type='text' class="w-25 form-control d-none" id="dish_ingredient5_portion" name='dish_ingredient5_portion' placeholder='e.g 10ml' />
+                            <input type='text' class="w-75 form-control d-none" id="dish_ingredient5" name='dish_ingredient5' placeholder='Ingredient 5' value="{{ data.dish_ingredient[4].dish_ingredient }}" />
+                            <input type='text' class="w-25 form-control d-none" id="dish_ingredient5_portion" name='dish_ingredient5_portion' placeholder='e.g 10ml' value="{{ data.dish_ingredient[4].dish_portion }}"/>
                             
-                            <input type='text' class="w-75 form-control d-none" id="dish_ingredient6" name='dish_ingredient6' placeholder='Ingredient 6' />
-                            <input type='text' class="w-25 form-control d-none" id="dish_ingredient6_portion" name='dish_ingredient6_portion' placeholder='e.g 10ml' />
+                            <input type='text' class="w-75 form-control d-none" id="dish_ingredient6" name='dish_ingredient6' placeholder='Ingredient 6' value="{{ data.dish_ingredient[5].dish_ingredient }}" />
+                            <input type='text' class="w-25 form-control d-none" id="dish_ingredient6_portion" name='dish_ingredient6_portion' placeholder='e.g 10ml' value="{{ data.dish_ingredient[5].dish_portion }}"/>
                             
-                            <input type='text' class="w-75 form-control d-none" id="dish_ingredient7" name='dish_ingredient7' placeholder='Ingredient 7' />
-                            <input type='text' class="w-25 form-control d-none" id="dish_ingredient7_portion" name='dish_ingredient7_portion' placeholder='e.g 10ml' />
+                            <input type='text' class="w-75 form-control d-none" id="dish_ingredient7" name='dish_ingredient7' placeholder='Ingredient 7' value="{{ data.dish_ingredient[6].dish_ingredient }}" />
+                            <input type='text' class="w-25 form-control d-none" id="dish_ingredient7_portion" name='dish_ingredient7_portion' placeholder='e.g 10ml' value="{{ data.dish_ingredient[6].dish_portion }}"/>
                             
-                            <input type='text' class="w-75 form-control d-none" id="dish_ingredient8" name='dish_ingredient8' placeholder='Ingredient 8' />
-                            <input type='text' class="w-25 form-control d-none" id="dish_ingredient8_portion" name='dish_ingredient8_portion' placeholder='e.g 10ml' />
+                            <input type='text' class="w-75 form-control d-none" id="dish_ingredient8" name='dish_ingredient8' placeholder='Ingredient 8' value="{{ data.dish_ingredient[7].dish_ingredient }}" />
+                            <input type='text' class="w-25 form-control d-none" id="dish_ingredient8_portion" name='dish_ingredient8_portion' placeholder='e.g 10ml' value="{{ data.dish_ingredient[7].dish_portion }}"/>
                             
-                            <input type='text' class="w-75 form-control d-none" id="dish_ingredient9" name='dish_ingredient9' placeholder='Ingredient 9' />
-                            <input type='text' class="w-25 form-control d-none" id="dish_ingredient9_portion" name='dish_ingredient9_portion' placeholder='e.g 10ml' />
+                            <input type='text' class="w-75 form-control d-none" id="dish_ingredient9" name='dish_ingredient9' placeholder='Ingredient 9'  value="{{ data.dish_ingredient[8].dish_ingredient }}"/>
+                            <input type='text' class="w-25 form-control d-none" id="dish_ingredient9_portion" name='dish_ingredient9_portion' placeholder='e.g 10ml' value="{{ data.dish_ingredient[8].dish_portion }}"/>
                             
-                            <input type='text' class="w-75 form-control d-none" id="dish_ingredient10" name='dish_ingredient10' placeholder='Ingredient 10' />
-                            <input type='text' class="w-25 form-control d-none" id="dish_ingredient10_portion" name='dish_ingredient10_portion' placeholder='e.g 10ml' />
+                            <input type='text' class="w-75 form-control d-none" id="dish_ingredient10" name='dish_ingredient10' placeholder='Ingredient 10' value="{{ data.dish_ingredient[9].dish_ingredient }}" />
+                            <input type='text' class="w-25 form-control d-none" id="dish_ingredient10_portion" name='dish_ingredient10_portion' placeholder='e.g 10ml' value="{{ data.dish_ingredient[9].dish_portion }}"/>
         
                             <div class='mt-3 btn btn-success'>Add ingredient</div>
                         </div>
@@ -80,33 +83,34 @@
                         <div class=" col-sm-9">
                             <input readonly type='text' disabled class="pl-3 form-control-plaintext" value='Cooking Instructions' />
                             
-                            <input type='text' class="form-control" id="dish_instruction1" name='dish_instruction1' placeholder='Fry Ginger until brown and add in the chicken' />
-                            <input type='text' class="form-control" id="dish_instruction2" name='dish_instruction2' placeholder='Add in rice wine and fry for 5 more min' />
-                            <input type='text' class="form-control" id="dish_instruction3" name='dish_instruction3' placeholder='Add 50ml of water and stew for 15mins' />
+                            <input type='text' class="form-control" id="dish_instruction1" name='dish_instruction1' placeholder='Fry Ginger until brown and add in the chicken' value="{{ data.dish_instructions[0].dish_instruction }}"/>
+                            <input type='text' class="form-control" id="dish_instruction2" name='dish_instruction2' placeholder='Add in rice wine and fry for 5 more min' value="{{ data.dish_instructions[1].dish_instruction }}"/>
+                            <input type='text' class="form-control" id="dish_instruction3" name='dish_instruction3' placeholder='Add 50ml of water and stew for 15mins' value="{{ data.dish_instructions[2].dish_instruction }}"/>
         
-                            <input type='text' class="form-control d-none" id="dish_instruction4" name='dish_instruction4' placeholder='Next Step' />
-                            <input type='text' class="form-control d-none" id="dish_instruction5" name='dish_instruction5' placeholder='Next Step' />
-                            <input type='text' class="form-control d-none" id="dish_instruction6" name='dish_instruction6' placeholder='Next Step' />
-                            <input type='text' class="form-control d-none" id="dish_instruction7" name='dish_instruction7' placeholder='Next Step' />
-                            <input type='text' class="form-control d-none" id="dish_instruction8" name='dish_instruction8' placeholder='Next Step' />
-                            <input type='text' class="form-control d-none" id="dish_instruction9" name='dish_instruction9' placeholder='Next Step' />
-                            <input type='text' class="form-control d-none" id="dish_instruction10" name='dish_instruction10' placeholder='Next Step' />
+                            <input type='text' class="form-control d-none" id="dish_instruction4" name='dish_instruction4' placeholder='Next Step' value="{{ data.dish_instructions[3].dish_instruction }}"/>
+                            <input type='text' class="form-control d-none" id="dish_instruction5" name='dish_instruction5' placeholder='Next Step' value="{{ data.dish_instructions[4].dish_instruction }}"/>
+                            <input type='text' class="form-control d-none" id="dish_instruction6" name='dish_instruction6' placeholder='Next Step' value="{{ data.dish_instructions[5].dish_instruction }}"/>
+                            <input type='text' class="form-control d-none" id="dish_instruction7" name='dish_instruction7' placeholder='Next Step' value="{{ data.dish_instructions[6].dish_instruction }}"/>
+                            <input type='text' class="form-control d-none" id="dish_instruction8" name='dish_instruction8' placeholder='Next Step' value="{{ data.dish_instructions[7].dish_instruction }}"/>
+                            <input type='text' class="form-control d-none" id="dish_instruction9" name='dish_instruction9' placeholder='Next Step' value="{{ data.dish_instructions[8].dish_instruction }}"/>
+                            <input type='text' class="form-control d-none" id="dish_instruction10" name='dish_instruction10' placeholder='Next Step' value="{{ data.dish_instructions[9].dish_instruction }}"/>
         
                             <div class='mt-3 btn btn-success'>Add another step</div>
                         </div>
-                    </div>            
+                    </div>  
+                    
                     <!--Preparation time estimate-->
                     <div class="form-group row">
                         <label for="dish_prep_time" class="col-sm-3 ">Preparation time</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="dish_prep_time" name="dish_prep_time" placeholder="30 min">
+                            <input type="text" class="form-control" id="dish_prep_time" name="dish_prep_time" placeholder="30 min" value="{{ data.dish_prep_time }}"> 
                         </div>
                     </div>
                     <!--Cooking Time estimate-->
                     <div class="form-group row">
                         <label for="dish_cook_time" class="col-sm-3 ">Cooking time</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="dish_cook_time" name="dish_cook_time" placeholder="1 hr 15 mins">
+                            <input type="text" class="form-control" id="dish_cook_time" name="dish_cook_time" placeholder="1 hr 15 mins" value="{{ data.dish_cook_time }}">
                         </div>
                     </div>
                     <!--Servings -->
@@ -114,13 +118,13 @@
                         <label for='dish_serving' class="col-sm-3 col-form-label">Servings</label>
                         <div class="col-sm-9">
                             <select class="form-control" id="dish_serving" name='dish_serving'>
-                              <option><i>--</i></option>
-                              <option>1 pax</option>
-                              <option>2 pax</option>
-                              <option>3 pax</option>
-                              <option>4 pax</option>
-                              <option>5 pax</option>
-                              <option>6 pax</option>
+                              <option {% if data['dish_serving']== '--' %} selected="selected"{% endif %} ><i>--</i></option>
+                              <option {% if data['dish_serving']== '1 pax' %} selected="selected"{% endif %} >1 pax</option>
+                              <option {% if data['dish_serving']== '2 pax' %} selected="selected"{% endif %} >2 pax</option>
+                              <option {% if data['dish_serving']== '3 pax' %} selected="selected"{% endif %} >3 pax</option>
+                              <option {% if data['dish_serving']== '4 pax' %} selected="selected"{% endif %} >4 pax</option>
+                              <option {% if data['dish_serving']== '5 pax' %} selected="selected"{% endif %} >5 pax</option>
+                              <option {% if data['dish_serving']== '6 pax' %} selected="selected"{% endif %} >6 pax</option>
                             </select>
                         </div>
                     </div>
@@ -128,16 +132,16 @@
                     <div class="form-group row">
                         <label for='dish_type' class="col-sm-3 col-form-label">Cusine Type</label>
                         <div class="col-sm-9">
-                            <select class="form-control" id="dish_skill" name='dish_type'>
-                                <option><i>--</i></option>
-                              <option>Singapore</option>
-                              <option>Chinese</option>
-                              <option>Muslim</option>
-                              <option>Indian</option>
-                              <option>Italian</option>
-                              <option>French</option>
-                              <option>American</option>
-                              <option>Mexican</option>
+                            <select class="form-control" id="dish_type" name='dish_type'>
+                              <option {% if data['dish_type']== '--' %} selected="selected"{% endif %} ><i>--</i></option>
+                              <option {% if data['dish_type']== 'Singapore' %} selected="selected"{% endif %} >Singapore</option>
+                              <option {% if data['dish_type']== 'Chinese' %} selected="selected"{% endif %} >Chinese</option>
+                              <option {% if data['dish_type']== 'Muslim' %} selected="selected"{% endif %} >Muslim</option>
+                              <option {% if data['dish_type']== 'Indian' %} selected="selected"{% endif %} >Indian</option>
+                              <option {% if data['dish_type']== 'Italian' %} selected="selected"{% endif %} >Italian</option>
+                              <option {% if data['dish_type']== 'French' %} selected="selected"{% endif %} >French</option>
+                              <option {% if data['dish_type']== 'American' %} selected="selected"{% endif %} >American</option>
+                              <option {% if data['dish_type']== 'Mexican' %} selected="selected"{% endif %} >Mexican</option>
                             </select>
                         </div>
                     </div>
@@ -146,11 +150,10 @@
                         <label for='dish_skill' class="col-sm-3 col-form-label">Skill Level</label>
                         <div class="col-sm-9">
                             <select class="form-control" id="dish_skill" name='dish_skill'>
-                                <option><i>--</i></option>
-                              <option>Easy</option>
-                              <option>Intermediate</option>
-                              <option>hard</option>
-                     
+                              <option{% if data['dish_skill']== '--' %} selected="selected"{% endif %}><i>--</i></option>
+                              <option{% if data['dish_skill']== 'Easy' %} selected="selected"{% endif %}>Easy</option>
+                              <option{% if data['dish_skill']== 'Intermediate' %} selected="selected"{% endif %}>Intermediate</option>
+                              <option{% if data['dish_skill']== 'Hard' %} selected="selected"{% endif %}>Hard</option>
                             </select>
                         </div>
                     </div>
@@ -159,7 +162,7 @@
                     <div class="form-group row">
                         <div class="col-sm-3"></div>
                         <div class='col-sm-9'>
-                            <button type='submit' class='bg-success rounded text-light py-2 w-100'>Submit Recipe</button>
+                            <button type='submit' class='bg-success rounded text-light py-2 w-100'>Upgrade the flavor now !</button>
                         </div>
                 </form>
                 </div>
