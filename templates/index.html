@@ -1,14 +1,13 @@
 {% extends 'base.html' %} 
 {% block page_title %}No. 1 Food Recipe | Enjoy the best food in life !{% endblock %} 
 {% block content %}
-<div class='tinted'></div>
 <main class='container-fluid p-0'> 
     <div class="banner-box row vh-70 text-danger">
         <div>
-            <h1>WOKING FORK TUMMY</h1>
+            <h1 class='text-center'>WOKING FORK TUMMY</h1>
         </div>
     </div>
-    <div class="vh-30 bg-dark pt-2 pb-1 text-white">
+    <div class="vh-30 bg-tinted pt-2 pb-1 text-white">
         <div class='recipe-list d-flex w-100 p-3'>
             {% for d in data %}
             <div class='col-md-2 col-sm-6 col-12'>
@@ -21,152 +20,6 @@
                 </div>
                 
             </div>
-
-            <div class='col-md-2 col-sm-6 col-12'>
-                
-                <div class='preview-box my-0 mx-auto'>
-                    <a href="{{ url_for('recipe', task_id=d['_id']) }}"><img src='static/images/{{ d.dish_image }}' alt="{{ d.dish_name }}"></a>
-                    <p class='text-center'>
-                        <strong>{{ d.dish_name }}</strong>
-                    </p>
-                </div>
-                
-            </div>
-            <div class='col-md-2 col-sm-6 col-12'>
-                
-                <div class='preview-box my-0 mx-auto'>
-                    <a href="{{ url_for('recipe', task_id=d['_id']) }}"><img src='static/images/{{ d.dish_image }}' alt="{{ d.dish_name }}"></a>
-                    <p class='text-center'>
-                        <strong>{{ d.dish_name }}</strong>
-                    </p>
-                </div>
-                
-            </div>
-            <div class='col-md-2 col-sm-6 col-12'>
-                
-                <div class='preview-box my-0 mx-auto'>
-                    <a href="{{ url_for('recipe', task_id=d['_id']) }}"><img src='static/images/{{ d.dish_image }}' alt="{{ d.dish_name }}"></a>
-                    <p class='text-center'>
-                        <strong>{{ d.dish_name }}</strong>
-                    </p>
-                </div>
-                
-            </div>
-            <div class='col-md-2 col-sm-6 col-12'>
-                
-                <div class='preview-box my-0 mx-auto'>
-                    <a href="{{ url_for('recipe', task_id=d['_id']) }}"><img src='static/images/{{ d.dish_image }}' alt="{{ d.dish_name }}"></a>
-                    <p class='text-center'>
-                        <strong>{{ d.dish_name }}</strong>
-                    </p>
-                </div>
-                
-            </div>
-            <div class='col-md-2 col-sm-6 col-12'>
-                
-                <div class='preview-box my-0 mx-auto'>
-                    <a href="{{ url_for('recipe', task_id=d['_id']) }}"><img src='static/images/{{ d.dish_image }}' alt="{{ d.dish_name }}"></a>
-                    <p class='text-center'>
-                        <strong>{{ d.dish_name }}</strong>
-                    </p>
-                </div>
-                
-            </div>
-            <div class='col-md-2 col-sm-6 col-12'>
-                
-                <div class='preview-box my-0 mx-auto'>
-                    <a href="{{ url_for('recipe', task_id=d['_id']) }}"><img src='static/images/{{ d.dish_image }}' alt="{{ d.dish_name }}"></a>
-                    <p class='text-center'>
-                        <strong>{{ d.dish_name }}</strong>
-                    </p>
-                </div>
-                
-            </div>
-            <div class='col-md-2 col-sm-6 col-12'>
-                
-                <div class='preview-box my-0 mx-auto'>
-                    <a href="{{ url_for('recipe', task_id=d['_id']) }}"><img src='static/images/{{ d.dish_image }}' alt="{{ d.dish_name }}"></a>
-                    <p class='text-center'>
-                        <strong>{{ d.dish_name }}</strong>
-                    </p>
-                </div>
-                
-            
-            </div>
-            <div class='col-md-2 col-sm-6 col-12'>
-                
-                <div class='preview-box my-0 mx-auto'>
-                    <a href="{{ url_for('recipe', task_id=d['_id']) }}"><img src='static/images/{{ d.dish_image }}' alt="{{ d.dish_name }}"></a>
-                    <p class='text-center'>
-                        <strong>{{ d.dish_name }}</strong>
-                    </p>
-                </div>
-                
-            </div>
-            <div class='col-md-2 col-sm-6 col-12'>
-                
-                <div class='preview-box my-0 mx-auto'>
-                    <a href="{{ url_for('recipe', task_id=d['_id']) }}"><img src='static/images/{{ d.dish_image }}' alt="{{ d.dish_name }}"></a>
-                    <p class='text-center'>
-                        <strong>{{ d.dish_name }}</strong>
-                    </p>
-                </div>
-                
-            </div>
-            <div class='col-md-2 col-sm-6 col-12'>
-                
-                <div class='preview-box my-0 mx-auto'>
-                    <a href="{{ url_for('recipe', task_id=d['_id']) }}"><img src='static/images/{{ d.dish_image }}' alt="{{ d.dish_name }}"></a>
-                    <p class='text-center'>
-                        <strong>{{ d.dish_name }}</strong>
-                    </p>
-                </div>
-                
-            </div>
-            <div class='col-md-2 col-sm-6 col-12'>
-                
-                <div class='preview-box my-0 mx-auto'>
-                    <a href="{{ url_for('recipe', task_id=d['_id']) }}"><img src='static/images/{{ d.dish_image }}' alt="{{ d.dish_name }}"></a>
-                    <p class='text-center'>
-                        <strong>{{ d.dish_name }}</strong>
-                    </p>
-                </div>
-                
-            </div>
-            <div class='col-md-2 col-sm-6 col-12'>
-                
-                <div class='preview-box my-0 mx-auto'>
-                    <a href="{{ url_for('recipe', task_id=d['_id']) }}"><img src='static/images/{{ d.dish_image }}' alt="{{ d.dish_name }}"></a>
-                    <p class='text-center'>
-                        <strong>{{ d.dish_name }}</strong>
-                    </p>
-                </div>
-                
-            </div>
-            <div class='col-md-2 col-sm-6 col-12'>
-                
-                <div class='preview-box my-0 mx-auto'>
-                    <a href="{{ url_for('recipe', task_id=d['_id']) }}"><img src='static/images/{{ d.dish_image }}' alt="{{ d.dish_name }}"></a>
-                    <p class='text-center'>
-                        <strong>{{ d.dish_name }}</strong>
-                    </p>
-                </div>
-                
-            </div>
-            <div class='col-md-2 col-sm-6 col-12'>
-                
-                <div class='preview-box my-0 mx-auto'>
-                    <a href="{{ url_for('recipe', task_id=d['_id']) }}"><img src='static/images/{{ d.dish_image }}' alt="{{ d.dish_name }}"></a>
-                    <p class='text-center'>
-                        <strong>{{ d.dish_name }}</strong>
-                    </p>
-                </div>
-                
-            </div>
-
-
-
-
             {% endfor %}
         </div> 
     

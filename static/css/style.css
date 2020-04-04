@@ -1,6 +1,9 @@
-body {
-    background-color: white;
+/*logo styling*/
+.logo {
+    font-family: fantasy;
+    text-shadow: 5px 5px 10px #404240 ;
 }
+/*display background image*/
 main {
     height: 100vh;
     background-image: url('/static/images/ingredient-banner.png');
@@ -8,22 +11,34 @@ main {
     background-position: center;
     background-size: cover;
 }
-#preview {
-    padding-top: 8%;
-}
+/*styling for the box that holds the brand "WOKING FORK TUMMY*/
 .banner-box{
     display: flex;
     justify-content:center;
     align-items: center;
 }
 .banner-box * {
-    font-size: 6rem;
+    font-size: 5rem;
     font-family: fantasy;
-    text-shadow: 5px 5px 10px #404240 ;
+    text-shadow: 10px 10px 20px #404240 ;
 }
+/*styling to separate the banner and preview row*/
+.vh-70{
+    height:70vh;
+    width: 100%;
+}
+.vh-30{
+    height:30vh;
+    width: 100%;
+}
+/*scrolling function for the list of recipes*/
 .recipe-list{
     width : 100%;
     overflow-x : scroll;
+}
+/*change the opacity for the preview recipe row*/
+.bg-tinted {
+    background-color: rgba(0,0,0,0.7)
 }
 ::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -34,6 +49,7 @@ main {
     background-color: rgb(230,230,230);
     box-shadow: 0 0 0.5px rgba(255, 255, 255, .5);
 }
+/*styling for the previews for all the recipes*/
 .preview-box {
     height: 150px;
     width : 200px;
@@ -42,16 +58,12 @@ main {
     max-width: 100%;
     height: auto;
 }
+/*styling for recipe image */
 .recipe-box img {
     max-width: 100%;
     height: auto;
 }
-.font-cursive {
-    font-family: cursive;
-}
-.list-remove-style {
-    list-style-type : none;
-}
+/*styling for removing confirmation box  */
 #remove_recipe-box {
     padding-top: 8%;
     display: flex;
@@ -60,21 +72,4 @@ main {
     flex-direction:column;
     height: 100vh;
 }
-.tinted{
-    height:100vh;
-    width: 100%;
-    bg-color:rgba(0,0,0,0.9);
-    z-index:1;
-}
-.vh-70{
-    height:70vh;
-    width: 100%;
-}
-.vh-30{
-    height:30vh;
-    width: 100%;
-}
 
-.bg-tinted {
-    background-color: rgba(0,0,0,0.7)
-}
