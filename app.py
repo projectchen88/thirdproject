@@ -7,7 +7,6 @@ app = Flask(__name__)
 # setting up the upload folder
 UPLOAD_FOLDER = os.path.dirname(os.path.abspath(__file__))+'/static/images'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.secret_key = os.getenv("SECRET","randomsecretkey1234")
 
 MONGO_URI = os.getenv('MONGO_URI')
 DATABASE_NAME = 'recipe'
