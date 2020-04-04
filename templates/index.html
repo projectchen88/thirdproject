@@ -10,7 +10,7 @@
     <div class="vh-30 bg-tinted pt-2 pb-1 text-white">
         <div class='recipe-list d-flex w-100 p-3'>
             {% for d in data %}
-            <div class='col-md-2 col-sm-6 col-12'>
+            <div class='col-lg-3 col-md-4 col-sm-6 col-12 pb-5'>
                 
                 <div class='preview-box my-0 mx-auto'>
                     <a href="{{ url_for('recipe', task_id=d['_id']) }}"><img src='static/images/{{ d.dish_image }}' alt="{{ d.dish_name }}"></a>
@@ -22,9 +22,10 @@
             </div>
             {% endfor %}
         </div> 
-    
     </div>
-        
+    <footer class='text-center w-100 p-5'>
+        <small class='text-muted'>@Woking Fork Tummy</small>
+    </footer>    
     
 </main>
 {% endblock %}

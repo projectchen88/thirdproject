@@ -46,24 +46,36 @@
             <h4>Ingredients : </h4>
             <!--<ul class="list-group">-->
             <p class="p-0">
-            {% for detail in data.dish_ingredient %}
-            <div class='d-flex'>
-                <div class="col-md-1 col-2 "><h2 class='font-cursive'><i>{{ detail.numbering }}</i></h2></div>
-                <div class="col-10 align-self-center">{{ detail.dish_portion }} {{ detail.dish_ingredient }} </div>
-            </div> 
-            {% endfor %}
+            
+            <table>
+                {% for detail in data.dish_ingredient %}
+                <tr {% if detail['dish_ingredient'] == "" %} class='d-none' {% endif %}>
+                    <td scope='col'>
+                        <h2 class='font-cursive'><i>{{ detail.numbering }}</i></h2>
+                    </td>
+                    <td scope='col'>{{ detail.dish_portion }}</td>
+                    <td scope='col'>{{ detail.dish_ingredient }}</td>
+                </tr>
+                {% endfor %}
+            </table> 
+
             </p>
         </div>
         <!--Generate the list of instructions-->
         <div class="col-6">
             <h4>Instructions : </h4>
             <p class="p-0">
+            <table>
             {% for detail in data.dish_instructions %}
-            <div class='d-flex'>
-                <div class="col-2 "><h2 class='font-cursive'><i>{{ detail.numbering }}</i></h2></div>
-                <div class="col-10 align-self-center">{{ detail.dish_instruction }} </div>
-            </div> 
+                <tr {% if detail['dish_instruction'] == "" %} class='d-none' {% endif %}>
+                    <td scope='col'>
+                        <h2 class='font-cursive'><i>{{ detail.numbering }}</i></h2>
+                    </td>
+                    <td scope='col'>{{ detail.dish_instruction }}</td>
+                </tr>
             {% endfor %}
+            </table>
+
             </p>    
         </div>
     </div>
