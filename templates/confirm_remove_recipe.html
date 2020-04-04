@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block page_title %}No. 1 Food Recipe | Enjoy the best food in life !{% endblock %} {% block content %}
+
+<div id='remove_recipe-box' class='bg-dark'>
+    <div class='p-5 bg-light text-center row w-75'>
+        <div class="col-10 mx-auto">
+            <div class='preview-box my-0 mx-auto'>
+            <img src='/static/images/{{ data.dish_image }}' alt="{{ data.dish_name }}"></a>
+            </div> 
+        </div>      
+        <div class="col-10 mx-auto">
+            <h4>Did something went wrong with the <br/> {{ data.dish_name }} recipe ? </h4>
+            <h5 class='text-danger mb-3'><i>You are about to remove this recipe from our menu.{{ message1 }}</i></h5>
+        </div>
+        <div class="col-10 mx-auto">
+            <a class='btn btn-success m-md-0 m-1' href='{{ url_for('recipe', task_id=data['_id']) }}'>Never mind, keep sharing!</a>
+        
+            <a class='btn btn-danger m-md-0 m-1' href='{{ url_for('remove_recipe', task_id=data['_id'], dish_name=data['dish_name']) }}'>Yes I am sure. Proceed to remove</a>    
+        </div>
+    </div>
+    <div class='p-5'></div>
+</div>    
+
+{% endblock %}
+

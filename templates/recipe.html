@@ -12,7 +12,7 @@
         <p class='w-100 text-dark text-right '>
             <i>
                 <a class="text-decoration-none text-success" href="{{ url_for('edit_recipe', task_id=data['_id']) }}">Edit</a> |
-                <a class="text-decoration-none text-warning" href="{{ url_for('remove_recipe') }}">Remove</a>
+                <a class="text-decoration-none text-warning" href="{{ url_for('confirm_remove_recipe', task_id=data['_id']) }}">Remove</a>
             </i>
         </p>
     </div>

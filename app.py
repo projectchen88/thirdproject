@@ -387,9 +387,22 @@ def update_recipe(task_id):
         message2 ='Soup taste better when brewed longer'
         )
 
-@app.route('/recipe/remove_recipe')
-def remove_recipe():
-    return render_template('remove_recipe.html')
+@app.route('/recipe/confirm_remove_recipe/<task_id>')
+def confirm_remove_recipe(task_id):
+    result = data_food_recipe.find_one({
+        '_id':ObjectId(task_id)
+    })
+    return render_template('confirm_remove_recipe.html', data = result)
+
+@app.route('/recipe/remove_recipe/<task_id>/<dish_name>')
+def remove_recipe(task_id, dish_name):
+    data_food_recipe.delete_one({
+        '_id':ObjectId(task_id)
+    })
+    return render_template('successful.html', 
+        message0 = "We just lost one recipe !",
+        message1 = 'We have removed your {} recipe!'.format(dish_name), 
+        message2 = "Let's look forward to the next better dish !" )
 
 if __name__ == '__main__':
     app.secret_key = 'super secret key'
