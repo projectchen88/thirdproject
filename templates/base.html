@@ -8,6 +8,8 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!--Font Awesome link-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!--CSS Style-->
   <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style.css') }}" type="text/css" />
   
@@ -21,7 +23,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="{{ url_for('index') }}">Home <span class="sr-only">(current)</span></a>
@@ -30,6 +32,11 @@
           <a class="nav-link" href="{{ url_for('new_recipe') }}">Submit a recipe</a>
         </li>
       </ul>
+      <div class='p-0 pr-5'>
+        <i class="fa fa-facebook-square" style="font-size:30px;"></i>
+        <i class="fa fa-instagram px-2" style="font-size:30px"></i>
+        <i class="fa fa-twitter" style="font-size:30px"></i>
+      </div>
     </div>
   </nav>
   {% block content %} {% endblock %}
