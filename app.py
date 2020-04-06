@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash
 import os, pymongo
 from bson.objectid import ObjectId
 
@@ -6,6 +6,7 @@ app = Flask(__name__)
 
 # setting up the upload folder
 UPLOAD_FOLDER = os.path.dirname(os.path.abspath(__file__))+'/static/images'
+
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 MONGO_URI = os.getenv('MONGO_URI')
@@ -30,7 +31,7 @@ def index():
 def new_recipe ():
     return render_template('new_recipe.html', data={}) 
     
-''' Upload the recipe submitted by the user '''
+''' Upload the new recipe submitted by the user and save to database '''
 @app.route('/new_recipe', methods=['POST'])
 def upload_recipe ():
     # Recipe name 
@@ -47,10 +48,6 @@ def upload_recipe ():
     dish_ingredient4 = request.form.get('dish_ingredient4')
     dish_ingredient5 = request.form.get('dish_ingredient5')
     dish_ingredient6 = request.form.get('dish_ingredient6')
-    dish_ingredient7 = request.form.get('dish_ingredient7')
-    dish_ingredient8 = request.form.get('dish_ingredient8')
-    dish_ingredient9 = request.form.get('dish_ingredient9')
-    dish_ingredient10 = request.form.get('dish_ingredient10')
     
     # Ingredient Portion
     dish_ingredient1_portion = request.form.get('dish_ingredient1_portion')
@@ -59,10 +56,6 @@ def upload_recipe ():
     dish_ingredient4_portion = request.form.get('dish_ingredient4_portion')
     dish_ingredient5_portion = request.form.get('dish_ingredient5_portion')
     dish_ingredient6_portion = request.form.get('dish_ingredient6_portion')
-    dish_ingredient7_portion = request.form.get('dish_ingredient7_portion')
-    dish_ingredient8_portion = request.form.get('dish_ingredient8_portion')
-    dish_ingredient9_portion = request.form.get('dish_ingredient9_portion')
-    dish_ingredient10_portion = request.form.get('dish_ingredient10_portion')
     
     # Instructions
     dish_instruction1 = request.form.get('dish_instruction1')
@@ -71,10 +64,6 @@ def upload_recipe ():
     dish_instruction4 = request.form.get('dish_instruction4')
     dish_instruction5 = request.form.get('dish_instruction5')
     dish_instruction6 = request.form.get('dish_instruction6')
-    dish_instruction7 = request.form.get('dish_instruction7')
-    dish_instruction8 = request.form.get('dish_instruction8')
-    dish_instruction9 = request.form.get('dish_instruction9')
-    dish_instruction10 = request.form.get('dish_instruction10')
     # Preparation time
     dish_prep_time = request.form.get('dish_prep_time')
     # Cooking time
@@ -127,26 +116,6 @@ def upload_recipe ():
                 'dish_ingredient' : dish_ingredient6,
                 'dish_portion' : dish_ingredient6_portion,
             },
-            {
-                'numbering' : '7.',
-                'dish_ingredient' : dish_ingredient7,
-                'dish_portion' : dish_ingredient7_portion,
-            },
-            {
-                'numbering' : '8.',
-                'dish_ingredient' : dish_ingredient8,
-                'dish_portion' : dish_ingredient8_portion,
-            },
-            {
-                'numbering' : '9.',
-                'dish_ingredient' : dish_ingredient9,
-                'dish_portion' : dish_ingredient9_portion,
-            },
-            {
-                'numbering' : '10.',
-                'dish_ingredient' : dish_ingredient10,
-                'dish_portion' : dish_ingredient10_portion,
-            },
             ],
         'dish_instructions' : [
             {
@@ -173,22 +142,6 @@ def upload_recipe ():
                 'numbering' : '6.',
                  'dish_instruction' : dish_instruction6,
             },
-            {
-                'numbering' : '7.',
-                'dish_instruction' : dish_instruction7,
-            },
-            {
-                'numbering' : '8.',
-                'dish_instruction' : dish_instruction8,
-            },
-            {
-                'numbering' : '9.',
-                'dish_instruction' : dish_instruction9,
-            },
-            {
-                'numbering' : '10.',
-                'dish_instruction' : dish_instruction10,
-            },
             ],
     })
     
@@ -200,7 +153,8 @@ def upload_recipe ():
         message0 = "Congratulations !",
         message1 = 'Thank you for submitting your {} recipe!'.format(dish_name), 
         message2 ='We will help more tongue taste good food')
-        
+
+''' Show the details of a selected recipe '''        
 @app.route('/recipe/<task_id>')
 def recipe (task_id) :
     result = data_food_recipe.find_one({
@@ -208,19 +162,34 @@ def recipe (task_id) :
     })
     return render_template ('recipe.html', data=result)
 
-@app.route('/recipe/edit/<task_id>')
-def edit_recipe(task_id):
+''' Show the Edit Recipe form '''
+@app.route('/recipe/edit/<task_id>/<image>')
+def edit_recipe(task_id, image):
     result = data_food_recipe.find_one({
         '_id':ObjectId(task_id)
     })
     return render_template('edit_recipe.html', data=result)
 
-@app.route('/recipe/edit/<task_id>', methods=['POST'])
-def update_recipe(task_id):
+''' Update the information changed submitted by user and update database'''
+@app.route('/recipe/edit/<task_id>/<image>', methods=['POST'])
+def update_recipe(task_id, image):
+    message= ""
     # Recipe name 
     dish_name = request.form.get('dish_name')
-    # Recipe image
-    # dish_image = request.files.get('dish_image')
+    
+    dish_image = request.files['dish_image']
+    if 'dish_image' not in request.files:
+        dish_image.filename = image
+        message = '{} - {}'.format(dish_image,image)
+    else:
+    # if user does not select file, browser also
+    # submit a empty part without filename
+        if dish_image.filename == '':
+            dish_image.filename = image
+            message = 'No selected file'
+        else:
+            dish_image.save(os.path.join(app.config['UPLOAD_FOLDER'], dish_image.filename ))
+    
     # Recipe description
     dish_description = request.form.get('dish_description')
     
@@ -231,10 +200,6 @@ def update_recipe(task_id):
     dish_ingredient4 = request.form.get('dish_ingredient4')
     dish_ingredient5 = request.form.get('dish_ingredient5')
     dish_ingredient6 = request.form.get('dish_ingredient6')
-    dish_ingredient7 = request.form.get('dish_ingredient7')
-    dish_ingredient8 = request.form.get('dish_ingredient8')
-    dish_ingredient9 = request.form.get('dish_ingredient9')
-    dish_ingredient10 = request.form.get('dish_ingredient10')
     
     # # Ingredient Portion
     dish_ingredient1_portion = request.form.get('dish_ingredient1_portion')
@@ -243,10 +208,6 @@ def update_recipe(task_id):
     dish_ingredient4_portion = request.form.get('dish_ingredient4_portion')
     dish_ingredient5_portion = request.form.get('dish_ingredient5_portion')
     dish_ingredient6_portion = request.form.get('dish_ingredient6_portion')
-    dish_ingredient7_portion = request.form.get('dish_ingredient7_portion')
-    dish_ingredient8_portion = request.form.get('dish_ingredient8_portion')
-    dish_ingredient9_portion = request.form.get('dish_ingredient9_portion')
-    dish_ingredient10_portion = request.form.get('dish_ingredient10_portion')
     
     # # Instructions
     dish_instruction1 = request.form.get('dish_instruction1')
@@ -255,10 +216,6 @@ def update_recipe(task_id):
     dish_instruction4 = request.form.get('dish_instruction4')
     dish_instruction5 = request.form.get('dish_instruction5')
     dish_instruction6 = request.form.get('dish_instruction6')
-    dish_instruction7 = request.form.get('dish_instruction7')
-    dish_instruction8 = request.form.get('dish_instruction8')
-    dish_instruction9 = request.form.get('dish_instruction9')
-    dish_instruction10 = request.form.get('dish_instruction10')
     # Preparation time
     dish_prep_time = request.form.get('dish_prep_time')
     # Cooking time
@@ -275,7 +232,7 @@ def update_recipe(task_id):
     }, {
         '$set': {
             'dish_name' : dish_name,
-            # 'dish_image' : dish_image.filename,
+            'dish_image' : dish_image.filename,
             'dish_description' : dish_description,
             'dish_prep_time' : dish_prep_time,
             'dish_cook_time' : dish_cook_time,
@@ -313,26 +270,6 @@ def update_recipe(task_id):
                     'dish_ingredient' : dish_ingredient6,
                     'dish_portion' : dish_ingredient6_portion,
                 },
-                {
-                    'numbering' : '7.',
-                    'dish_ingredient' : dish_ingredient7,
-                    'dish_portion' : dish_ingredient7_portion,
-                },
-                {
-                    'numbering' : '8.',
-                    'dish_ingredient' : dish_ingredient8,
-                    'dish_portion' : dish_ingredient8_portion,
-                },
-                {
-                    'numbering' : '9.',
-                    'dish_ingredient' : dish_ingredient9,
-                    'dish_portion' : dish_ingredient9_portion,
-                },
-                {
-                    'numbering' : '10.',
-                    'dish_ingredient' : dish_ingredient10,
-                    'dish_portion' : dish_ingredient10_portion,
-                },
                 ],
             'dish_instructions' : [
                 {
@@ -359,34 +296,19 @@ def update_recipe(task_id):
                     'numbering' : '6.',
                      'dish_instruction' : dish_instruction6,
                 },
-                {
-                    'numbering' : '7.',
-                    'dish_instruction' : dish_instruction7,
-                },
-                {
-                    'numbering' : '8.',
-                    'dish_instruction' : dish_instruction8,
-                },
-                {
-                    'numbering' : '9.',
-                    'dish_instruction' : dish_instruction9,
-                },
-                {
-                    'numbering' : '10.',
-                    'dish_instruction' : dish_instruction10,
-                },
                 ],
         }
     })    
-    
-    
+
     return render_template(
         'successful.html', 
         message0 = "Brillant !",
         message1 = 'We have updated your {} recipe!'.format(dish_name), 
-        message2 ='Soup taste better when brewed longer'
+        message2 ='Soup taste better when brewed longer',
+        message = message 
         )
 
+''' Check with user to confirm the removal of recipe '''
 @app.route('/recipe/confirm_remove_recipe/<task_id>')
 def confirm_remove_recipe(task_id):
     result = data_food_recipe.find_one({
@@ -394,6 +316,7 @@ def confirm_remove_recipe(task_id):
     })
     return render_template('confirm_remove_recipe.html', data = result)
 
+''' Remove the recipe from database '''
 @app.route('/recipe/remove_recipe/<task_id>/<dish_name>')
 def remove_recipe(task_id, dish_name):
     data_food_recipe.delete_one({
@@ -403,6 +326,7 @@ def remove_recipe(task_id, dish_name):
         message0 = "We just lost one recipe !",
         message1 = 'We have removed your {} recipe!'.format(dish_name), 
         message2 = "Let's look forward to the next better dish !" )
+
 
 if __name__ == '__main__':
     app.secret_key = 'super secret key'
