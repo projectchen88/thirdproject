@@ -6,7 +6,6 @@ app = Flask(__name__)
 
 # setting up the upload folder
 UPLOAD_FOLDER = os.path.dirname(os.path.abspath(__file__))+'/static/images'
-
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 MONGO_URI = os.getenv('MONGO_URI')
@@ -37,7 +36,19 @@ def upload_recipe ():
     # Recipe name 
     dish_name = request.form.get('dish_name')
     # Recipe image
-    dish_image = request.files.get('dish_image')
+    dish_image = request.files['dish_image']
+    if 'dish_image' not in request.files:
+        dish_image.filename = "default_image.jpg"
+    else:
+    # if user does not select file, browser also
+    # submit a empty part without filename
+        if dish_image.filename == '':
+            dish_image.filename = "default_image.jpg"
+        else:
+            dish_image.save(os.path.join(app.config['UPLOAD_FOLDER'], dish_image.filename ))
+            # Upload image file to static folder
+            dish_image.save(os.path.join(app.config['UPLOAD_FOLDER'], dish_image.filename ))
+    
     # Recipe description
     dish_description = request.form.get('dish_description')
     
@@ -145,8 +156,6 @@ def upload_recipe ():
             ],
     })
     
-    ''' Upload image file to static folder '''
-    dish_image.save(os.path.join(app.config['UPLOAD_FOLDER'], dish_image.filename ))
 
     return render_template(
         'successful.html', 
@@ -305,7 +314,6 @@ def update_recipe(task_id, image):
         message0 = "Brillant !",
         message1 = 'We have updated your {} recipe!'.format(dish_name), 
         message2 ='Soup taste better when brewed longer',
-        message = message 
         )
 
 ''' Check with user to confirm the removal of recipe '''
