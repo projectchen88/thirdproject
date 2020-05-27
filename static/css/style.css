@@ -16,16 +16,17 @@ main {
     display: flex;
     justify-content:center;
     align-items: center;
+    height:70vh;
+    width: 100%;
 }
 .banner-box * {
-    font-size: 5rem;
+    font-size: 4rem;
     font-family: fantasy;
     text-shadow: 10px 10px 20px #404240 ;
 }
 /*styling to separate the banner and preview row*/
 .vh-70{
-    height:70vh;
-    width: 100%;
+
 }
 .vh-30{
     height:30vh;
@@ -73,3 +74,18 @@ main {
     height: 100vh;
 }
 
+@media screen and (max-width: 760px) {
+    main {
+        height: 100vh;
+        background-image: none;
+    }
+    .banner-box{
+        background-image: url('/static/images/ingredient-banner.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height:40vh;
+        width: 100%;
+    }
+}
+    
