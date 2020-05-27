@@ -16,32 +16,20 @@
     <div class='w-100 text-center'>
         <h3>Editor's Picks</h3>
     </div>
-    <div class="row ">
-        <div class="d-none d-md-block col-1 ml-auto"></div>
+    <div class="row p-2">
+        <div class="col-md-1 col-0 ml-auto"></div>
         {% for d in data %}
-        <div class='col-md-auto col-10 preview-box my-2 mx-md-2 mx-auto'>
-            <a href=""><img src='static/images/muah_chee.jpg' alt=""></a>
+        
+        <div class='col-md-3 col-sm-4 col-10 preview-box my-2 mx-md-2 mx-auto'>
+            <a href="{{ url_for('recipe', task_id=d['_id']) }}"><img src='static/images/{{ d.dish_image }}' alt="{{ d.dish_name }}"></a>
             <p class='text-center'>
-                <strong>Muah Chee</strong> 
-                <p class='text-justify'>{{ d.dish_description }}</p>
-            </p>
-        </div>
-        <div class='col-md-auto col-10 preview-box my-2 mx-md-2 mx-auto'>
-            <a href=""><img src='static/images/muah_chee.jpg' alt=""></a>
-            <p class='text-center'>
-                <strong>Muah Chee</strong> 
+                <strong>{{ d.dish_name }}</strong> 
                 <p class='text-justify'>{{ d.dish_description }}</p>
             </p>
         </div> 
-        <div class='col-md-auto col-10 preview-box my-2 mx-md-2 mx-auto'>
-            <a href=""><img src='static/images/muah_chee.jpg' alt=""></a>
-            <p class='text-center'>
-                <strong>Muah Chee</strong> 
-                <p class='text-justify'>{{ d.dish_description }}</p>
-            </p>
-        </div>
+       
         {% endfor %}
-        <div class="d-none d-md-block col-1 mr-auto"></div>
+        <div class="col-md-1 col-0 mr-auto"></div>
 
     </div>
 
