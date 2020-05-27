@@ -3,3 +3,7 @@
     font-family: fantasy;
     text-shadow: 5px 5px 10px #404240 ;
 }
+
+header span {
+    font-size: 4rem;
+}
