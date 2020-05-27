@@ -2,8 +2,8 @@
 <main class='container-fluid p-0'>
 
     <!--Header-->
-    <header class="row w-100 p-5">
-        <div class='d-md-block d-none mx-auto text-center'>
+    <header class="d-md-block d-none row w-100 p-5">
+        <div class='mx-auto text-center'>
             <span class=' logo text-danger mx-auto'>WOKING FORK TUMMY</span>
             <div>
                 <img class='img-header' src="static/images/wok.png" />
@@ -12,7 +12,41 @@
     </header>
     <!--end of header-->
 
+    <!--Editor's Picks-->
+    <div class='w-100 text-center'>
+        <h3>Editor's Picks</h3>
+    </div>
+    <div class="row ">
+        <div class="d-none d-md-block col-1 ml-auto"></div>
+        {% for d in data %}
+        <div class='col-md-auto col-10 preview-box my-2 mx-md-2 mx-auto'>
+            <a href=""><img src='static/images/muah_chee.jpg' alt=""></a>
+            <p class='text-center'>
+                <strong>Muah Chee</strong> 
+                <p class='text-justify'>{{ d.dish_description }}</p>
+            </p>
+        </div>
+        <div class='col-md-auto col-10 preview-box my-2 mx-md-2 mx-auto'>
+            <a href=""><img src='static/images/muah_chee.jpg' alt=""></a>
+            <p class='text-center'>
+                <strong>Muah Chee</strong> 
+                <p class='text-justify'>{{ d.dish_description }}</p>
+            </p>
+        </div> 
+        <div class='col-md-auto col-10 preview-box my-2 mx-md-2 mx-auto'>
+            <a href=""><img src='static/images/muah_chee.jpg' alt=""></a>
+            <p class='text-center'>
+                <strong>Muah Chee</strong> 
+                <p class='text-justify'>{{ d.dish_description }}</p>
+            </p>
+        </div>
+        {% endfor %}
+        <div class="d-none d-md-block col-1 mr-auto"></div>
 
+    </div>
+
+
+    <!--end of editor pick-->
 
     <!--Footer-->
     <footer class='text-center w-100 mt-5 p-5'>
