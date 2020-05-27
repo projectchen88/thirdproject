@@ -19,13 +19,14 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <a class="navbar-brand" href="{{ url_for('index') }}"><span class='logo text-danger'>Woking Fork Tummy</span></a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-transparent mt-md-5 mt-2">
+    <a class="navbar-brand" href="{{ url_for('index') }}"><span class='logo text-danger d-md-none d-block'>Woking Fork Tummy</span></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
     <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <div class="d-flex justify-content-center flex-column align-items-center w-100">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item active">
           <a class="nav-link" href="{{ url_for('index') }}">HOME <span class="sr-only">(current)</span></a>
@@ -40,11 +41,11 @@
           <a class="nav-link" href="{{ url_for('new_recipe') }}">CONTACT US</a>
         </li>
       </ul>
-      
       <div class='p-0 pr-5'>
         <i class="fa fa-facebook-square" style="font-size:30px;"></i>
         <i class="fa fa-instagram px-2" style="font-size:30px"></i>
         <i class="fa fa-twitter" style="font-size:30px"></i>
+      </div>
       </div>
     </div>
   </nav>

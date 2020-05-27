@@ -2,19 +2,17 @@
 {% block page_title %}No. 1 Food Recipe | Enjoy the best food in life !{% endblock %} 
 {% block content %}
 <main class='container-fluid p-0'> 
-    <div class="d-md-block d-none banner-box row text-danger">
-        <div class='d-sm-block d-none '>
-            <div class='text-center'>WOKING FORK TUMMY</div>
-        </div>
-    </div> 
-    {% for d in data %}
-    <div>
-        <img src='static/images/{{ d.dish_image }}' alt="{{ d.dish_name }}">
-        <strong>{{ d.dish_name }}</strong>
-    </div>
-    {% endfor %}
-
     
+
+    <div class="banner-box row text-danger">
+        <div class='d-sm-block d-none '>
+            <!--<div class='text-center'>WOKING FORK TUMMY</div>-->
+        </div>
+    </div>
+    
+    <footer class='text-center w-100 mt-5 p-5'>
+        <small class='text-muted'>@Woking Fork Tummy</small>
+    </footer>    
     
 </main>
 {% endblock %}
