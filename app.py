@@ -20,11 +20,18 @@ data_food_recipe = conn[DATABASE_NAME][COLLECTION_FOOD_RECIPE]
 ''' Index page '''
 @app.route('/')
 def index():
-    result = data_food_recipe.find({})
+    result = data_food_recipe.find({}).limit(3)
     return render_template ('index.html'
     , data = result
     )
 
+@app.route('/how_to')
+def how_to ():
+    result = data_food_recipe.find({})
+    return render_template ('how_to.html'
+    , data = result
+    )
+    
 ''' Render a empty template for user to enter the new recipe '''
 @app.route('/new_recipe')
 def new_recipe ():
