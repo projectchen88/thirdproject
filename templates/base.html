@@ -19,6 +19,7 @@
 </head>
 
 <body>
+  <!--Navbar-->
   <nav class="navbar navbar-expand-lg navbar-light bg-transparent mt-md-5 mt-2">
     <a class="navbar-brand" href="{{ url_for('index') }}"><span class='logo text-danger d-md-none d-block'>Woking Fork Tummy</span></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,7 +51,9 @@
       </div>
     </div>
   </nav>
+  <!--end of Navbar-->
   {% block content %} {% endblock %}
+  
   <!--Footer-->
   <footer id="contact-us" class='text-center pb-5'>
       <!--Email us-->
@@ -69,6 +72,7 @@
       <small class='text-muted'>@Woking Fork Tummy</small>
   </footer>
   <!--end of footer-->
+  
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

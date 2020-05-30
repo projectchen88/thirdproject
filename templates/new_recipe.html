@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% block page_title %}New Recipe is the best thing human creation !{% endblock %} {% block content %}
+{% extends 'base.html' %} 
+{% block page_title %}New Recipe is the best thing human creation !{% endblock %} 
+{% block content %}
 <section class='mt-5 mx-3 p-3'>
     <div class='d-flex justify-content-between pt-md-5 pt-2 px-3'>
         <p class='d-md-inline-block d-none w-100 text-dark '>
@@ -7,7 +9,6 @@
                 <a class="text-decoration-none text-success" href="{{ url_for('index') }}">Home</a> > Submit new recipe
             </i>
         </p>
-        
     </div>
     <div class='row pt-md-5 pt-2'>
         <h2 class='mx-auto'><strong>Submit Your Recipe</strong></h2>
@@ -28,7 +29,6 @@
                             <input type="text" class="form-control" id="dish_name" name="dish_name" placeholder="Recipe title">
                         </div>
                     </div>
-                    
                     <!--Image upload-->
                     <div class="form-group row">
                         <label for='dish_image' class="col-sm-3 col-form-label">File Upload</label>
@@ -63,7 +63,6 @@
                             <input type='text' class="w-25 form-control " id="dish_ingredient6_portion" name='dish_ingredient6_portion' placeholder='e.g 10ml' />
                         </div>
                     </div>
-        
                     <!--Instructions entry-->
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Instructions</label>
@@ -136,7 +135,6 @@
                             </select>
                         </div>
                     </div>
-                    
                     <!--Submit button-->
                     <div class="form-group row">
                         <div class="col-sm-3"></div>
@@ -145,7 +143,7 @@
                         </div>
                 </form>
                 </div>
-        </form>
+                </form>
             </div>
         </div>
     </div>
