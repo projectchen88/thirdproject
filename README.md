@@ -8,7 +8,7 @@ For my user,
 
     * they are able to share their recipe
     * they are able to edit and remove their recipe
-    * they are able to share with the friends via social media (future development)
+    * they are able to share with the friends via social media 
     * they are able to create their own account and create a profile (future development)
     * they can set up their own fan club (future development)
     

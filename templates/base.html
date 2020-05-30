@@ -42,10 +42,11 @@
         </li>
       </ul>
       <div class='p-0 pr-5'>
-        <i class="fa fa-facebook-square" style="font-size:30px;"></i>
-        <i class="fa fa-instagram px-2" style="font-size:30px"></i>
-        <i class="fa fa-twitter" style="font-size:30px"></i>
+        <i class="fa fa-facebook-square"></i>
+        <i class="fa fa-instagram mx-2"></i>
+        <i class="fa fa-twitter"></i>
       </div>
+ 
       </div>
     </div>
   </nav>
@@ -59,6 +60,11 @@
       <div>
         <small class='text-muted'>Contact Us @ <a class='text-dark' href="tel:68888888">6888 8888</a></small><br/>
         <small class='text-muted'>Email Us @ <a class='text-dark' href="mail:admin@workforktummy.com">admin@workforktummy.com</a></small><br/>
+        <div id="fb-root"></div>
+        <div class=" fb-share-button" 
+            data-href="https://thirdproject-foodrecipe.herokuapp.com/" 
+            data-layout="button_count">
+        </div>
       </div>
       <small class='text-muted'>@Woking Fork Tummy</small>
   </footer>
@@ -68,8 +74,10 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  
+  <!--Font Awesome Link-->
   <script src="https://kit.fontawesome.com/28999233a0.js" crossorigin="anonymous"></script>
+  <!--Custom Script-->
+  <script type="text/javascript" src="{{ url_for('static', filename = 'scripts/script.js') }}"></script>
 </body>
 
 </html>
