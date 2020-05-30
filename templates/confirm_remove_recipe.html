@@ -1,19 +1,31 @@
-{% extends 'base.html' %} {% block page_title %}No. 1 Food Recipe | Enjoy the best food in life !{% endblock %} {% block content %}
+{% extends 'base.html' %} 
+{% block page_title %}No. 1 Food Recipe | Enjoy the best food in life !{% endblock %} 
+{% block content %}
 
 <section class='container-fluid'>
     <div class="row p-5">
-        <div class='col-12 preview-box my-0 mx-auto'>
+        <!--Display image of items to be delete-->
+        <div class='col-md-7 col-12 preview-box my-0 mx-auto'>
             <img src='/static/images/{{ data.dish_image }}' alt="{{ data.dish_name }}"></a>
         </div>
-        <div class="p-2">
-            <p>Did something went wrong with the <br/> {{ data.dish_name }} recipe ? <br/>
-            <span class='text-danger'><small>You are about to remove this recipe from our menu.{{ message1 }}</small></span></p>
-        </div><br/>
-        <a class='d-md-block d-none btn btn-success m-md-0 m-1' href='{{ url_for('recipe', task_id=data['_id']) }}'>Never mind, keep sharing!</a>
-        <a class='d-md-none d-block btn btn-success m-md-0 m-1' href='{{ url_for('recipe', task_id=data['_id']) }}'>Back</a>
-
-        <a class='d-md-block d-none btn btn-danger m-md-0 m-1' href='{{ url_for('remove_recipe', task_id=data['_id'], dish_name=data['dish_name'] ) }}'>Yes I am sure. Proceed to remove</a>
-        <a class='d-md-none d-block btn btn-danger m-md-0 m-1' href='{{ url_for('remove_recipe', task_id=data['_id'], dish_name=data['dish_name']) }}'>Remove</a>   
+        <!--Message to user to confirm deletion -->
+        <div class="col-md-7 col-12 px-md-5 px-1 pt-3 mx-auto">
+            <h5 class='mx-auto'><strong>Did something went wrong with the {{ data.dish_name }} recipe ? </strong><br/>
+            <span class='text-danger'><small>You are about to remove this recipe from our menu.{{ message1 }}</small></span></h5>
+        </div>
+        <!--Confirm Delete or Cancel buttons-->
+        <div class="col-md-7 col-12 px-md-5 pt-3 mx-auto">
+            <div class="row">
+                <div class="col-6 p-md-2 p-1">
+                    <a class='d-md-block d-none btn btn-success m-md-0 m-1' href='{{ url_for('recipe', task_id=data['_id']) }}'>Never mind, keep sharing!</a>
+                    <a class='d-md-none d-block btn btn-success m-md-0 m-1' href='{{ url_for('recipe', task_id=data['_id']) }}'>Back</a>
+                </div>
+                <div class="col-6 p-md-2 p-1">
+                    <a class='d-md-block d-none btn btn-danger m-md-0 m-1' href='{{ url_for('remove_recipe', task_id=data['_id'], dish_name=data['dish_name'] ) }}'>Yes I am sure. Proceed to remove</a>
+                    <a class='d-md-none d-block btn btn-danger m-md-0 m-1' href='{{ url_for('remove_recipe', task_id=data['_id'], dish_name=data['dish_name']) }}'>Remove</a>    
+                </div>
+            </div>
+        </div>
     </div>
 </section>    
 
