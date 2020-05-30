@@ -53,10 +53,12 @@
 
             <div class="col-12">
                 {% for detail in data.dish_ingredient %}
+                <div {% if detail['dish_ingredient'] == "" %} class='d-none' {% endif %}>
                 <div class="row">
                     <div class="col-1 font-cursive"><h4><i>{{ detail.numbering }}</i></h4></div>
                     <div class="col-3">{{ detail.dish_portion }}</div>
                     <div class="col-6">{{ detail.dish_ingredient }}</div>
+                </div>
                 </div>
                 {% endfor %}
             </div>
@@ -71,9 +73,11 @@
 
              <div class="col-12">
                     {% for detail in data.dish_instructions %}
+                    <div {% if detail['dish_instruction'] == "" %} class='d-none' {% endif %}>
                     <div class="row">
                         <div class="col-1 font-cursive"><h4><i>{{ detail.numbering }}</i></h4></div>
                         <div class="col-11">{{ detail.dish_instruction }}</div>
+                    </div>
                     </div>
                     {% endfor %}
                 </div>
