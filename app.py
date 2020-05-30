@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 import os, pymongo
 from bson.objectid import ObjectId
-
+import time
 app = Flask(__name__)
 
 # setting up the upload folder
@@ -21,8 +21,8 @@ data_food_recipe = conn[DATABASE_NAME][COLLECTION_FOOD_RECIPE]
 @app.route('/')
 def index():
     result = data_food_recipe.find({}).limit(3)
-    return render_template ('index.html'
-    , data = result
+    return render_template ('index.html', 
+        data = result,
     )
 
 @app.route('/how_to')

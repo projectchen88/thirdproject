@@ -11,11 +11,11 @@
         </div>
     </header>
     <!--end of header-->
-
     <!--Editor's Picks-->
     <div class='w-100 text-center'>
         <h3>Editor's Picks</h3>
     </div>
+    <!--Display of 3 editor's choice recipe-->
     <div class="row p-2">
         <div class="col-md-1 col-0 ml-auto"></div>
         {% for d in data %}
@@ -24,7 +24,7 @@
             <a href="{{ url_for('recipe', task_id=d['_id']) }}"><img src='static/images/{{ d.dish_image }}' alt="{{ d.dish_name }}"></a>
             <p class='text-center'>
                 <strong>{{ d.dish_name }}</strong> 
-                <p class='preview-text text-justify' ><span maxlength="20">{{ d.dish_description }}</span></p>
+                <p class='preview-text text-justify' ><span maxlength="20">{{ d.dish_description [:160] + (d.dish_description[160:] and '...' )}}</span></p>
             </p>
         </div> 
        
@@ -36,10 +36,6 @@
 
     <!--end of editor pick-->
 
-    <!--Footer-->
-    <footer class='text-center w-100 mt-5 p-5'>
-        <small class='text-muted'>@Woking Fork Tummy</small>
-    </footer>
-    <!--end of footer-->
+
 </main>
 {% endblock %}

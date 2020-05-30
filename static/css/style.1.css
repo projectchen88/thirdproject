@@ -62,7 +62,7 @@ main {
 /*styling for recipe image */
 .recipe-box img {
     max-width: 100%;
-    height: auto;
+    height: 100%;
 }
 /*styling for removing confirmation box  */
 #remove_recipe-box {

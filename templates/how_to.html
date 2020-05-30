@@ -1,33 +1,22 @@
 {% extends 'base.html' %} {% block page_title %}No. 1 Food Recipe | Enjoy the best food in life !{% endblock %} {% block content %}
-<main class='container-fluid p-0'>
-
+<section class='container-fluid p-0'>
+    <!--Full recipe list-->
     <div class='mt-md-5 mt-2 w-100 text-center'>
-        <h3>Recipes</h3>
+        <h2>Recipes</h2>
     </div>
     <div class="row p-2">
-        <div class="col-md-1 col-0 ml-auto"></div>
         {% for d in data %}
         
-        <div class='col-md-3 col-sm-4 col-10 preview-box my-2 mx-md-2 mx-auto'>
+        <div class='col-md-3 col-sm-4 col-10 preview-box my-2 mx-auto'>
             <a href="{{ url_for('recipe', task_id=d['_id']) }}"><img src='static/images/{{ d.dish_image }}' alt="{{ d.dish_name }}"></a>
             <p class='text-center'>
-                <strong>{{ d.dish_name }}</strong> 
-                <p class='preview-text text-justify' ><span maxlength="20">{{ d.dish_description }}</span></p>
+                <strong><i class="fas fa-utensil-spoon text-danger"></i> {{ d.dish_name }}</strong>
+                <p class='preview-text text-justify' >{{ d.dish_description [:160] + (d.dish_description[160:] and '...' )}}</p>
             </p>
         </div> 
-       
         {% endfor %}
-        <div class="col-md-1 col-0 mr-auto"></div>
 
     </div>
-
-
-    <!--end of editor pick-->
-
-    <!--Footer-->
-    <footer class='text-center w-100 mt-5 p-5'>
-        <small class='text-muted'>@Woking Fork Tummy</small>
-    </footer>
-    <!--end of footer-->
-</main>
+    <!--end of recipe list-->
+</section>
 {% endblock %}
