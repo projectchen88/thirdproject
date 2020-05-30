@@ -86,7 +86,7 @@ Test Results as follows :
 
 #### Deployment
 This site is hosted using Heroku App Link : 
-_https://dashboard.heroku.com/apps/thirdproject-foodrecipe_
+https://thirdproject-foodrecipe.herokuapp.com/
 
     The website is deployed on Github 
     Regular commits are made and once finalised.
